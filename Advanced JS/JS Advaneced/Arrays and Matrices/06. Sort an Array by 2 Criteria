@@ -1,0 +1,17 @@
+function main(input) {
+const newArr = input
+.sort()
+.sort((firstName, secondName) => 
+firstName.length - secondName.length);
+
+ console.log(newArr.join('\n'));
+}
+
+
+
+function main(input) {
+    return [...input]
+    .sort((a,b)=>{
+        return a.length - b.length || a.localeCompare(b) //сравнява стрингове по азбучен ред
+    }).join("\n")
+}
