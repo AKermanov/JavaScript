@@ -1,0 +1,6 @@
+function solve(input){
+let separator = input.pop(); // взема последния елемент
+// не е добра практика да променяме масива. Поп го променя
+
+    console.log(input.join(separator));
+}
