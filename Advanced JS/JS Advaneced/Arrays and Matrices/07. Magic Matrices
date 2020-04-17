@@ -1,0 +1,25 @@
+function main(input) {
+let isMagicMatrix = true;
+let firstRowSum = input[0].reduce((a,b)=>a+b, 0);
+
+ for (let row = 0; row < input.length; row++) {
+
+     let rowSUm = input[row].reduce((a,b)=>a+b, 0);
+    if(rowSUm !== firstRowSum){
+    isMagicMatrix = false;
+    break;
+    }
+
+    let colSum = 0;
+
+     for (let col = 0; col < input[row]; col++) {
+     colSum+=input[row + col + 1][col];
+
+     } 
+   if(colSum){
+     isMagicMatrix = false;
+     break;
+    }
+}
+        console.log(isMagicMatrix);
+}
