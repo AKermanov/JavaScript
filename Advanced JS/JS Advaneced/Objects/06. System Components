@@ -1,0 +1,28 @@
+function component(data) {
+   let parseData = data.reduce((db, componentData)=>{
+       let[systemName, componentName, subcomponentName] = componentData
+       .split('|')
+       .map(x=>x.trim());
+if(!db[systemName]){
+    db[systemName] = {[componentName]: [subcomponentName]};
+    return db;
+}
+if(!db[systemName][componentName]){
+db[systemName][componentName] = [subcomponentName];
+return db;
+}
+
+db[systemName][componentName] = [...db[systemName][componentName], subcomponentName];
+return db;
+   });
+
+   let sortedSystem = Object.keys(parseData).sort((a,b)=>{
+
+       if(Object.length !== parseData[b].length){
+           return parseData[b].length - parseData[a].length;
+       }
+       
+return a.localeCompare(b);
+   });
+   console.log(sortedSystem);
+}
