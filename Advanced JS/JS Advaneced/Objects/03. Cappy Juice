@@ -1,0 +1,25 @@
+function cappyJuice(input) {
+    let parseDate = input.reduce((juiceAcc, x)=>{
+
+       let [jouceName, quantity] = x.split(' => ');
+       
+       if (juiceAcc.currentJuiceQuantatity[jouceName]){
+        juiceAcc.currentJuiceQuantatity[jouceName] +=Number(quantity);
+       }else{
+        juiceAcc.currentJuiceQuantatity[jouceName] = +quantity;
+       }
+
+       let bottleQ = Math.floor(juiceAcc.currentJuiceQuantatity[jouceName] / 1000);
+
+       if(bottleQ > 0 && !juiceAcc.compleatetJueces.includes(jouceName)){
+        juiceAcc.compleatetJueces.push(jouceName);
+       }
+
+       return juiceAcc;
+    }, {compleatetJueces: [], currentJuiceQuantatity: {} });
+
+parseDate.compleatetJueces.map(juice=>{
+    console.log(`${juice} => ${Math.floor(parseDate.currentJuiceQuantatity[juice]/ 1000)}`);
+});
+   
+}
