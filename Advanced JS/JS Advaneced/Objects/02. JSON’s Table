@@ -1,0 +1,19 @@
+function solve(data){
+    let parseData = data.map(x=>JSON.parse(x));
+
+    let createTable = content => `<table>${content}\n</table>`;
+    let createRow = content => `\n  <tr>${content}\n    </tr>`;
+    let createData = content => `\n     <td>${content}</td>`;
+
+   let result = parseData.reduce((accRows,row)=>{
+     let tdFOrPerson = Object.values(row).reduce((tdAcc, td)=>{
+          return tdAcc + createData(td)
+      }, '');
+//<td>Pesho</td><tg>age... - резултатът от функцията
+      return accRows + createRow(tdFOrPerson);
+
+    }, '');
+
+    return createTable(result);
+
+    }
