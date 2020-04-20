@@ -1,0 +1,15 @@
+const add = (function test(){
+//Closure in add function
+let sum = 0;
+
+function add(addend){
+  sum+=addend;
+  return add;
+};
+
+add.toString = function(){
+  return sum;
+}
+
+return add;
+})();
