@@ -1,0 +1,19 @@
+function solve(...input){
+  Object.entries( 
+    input
+    .reduce((previous, current)=>{
+  let typeOfArgs = typeof current;
+  console.log(`${typeOfArgs}: ${current}`);
+  
+  if (!previous.hasOwnProperty(typeOfArgs)) {
+    previous[typeOfArgs] = 0;
+  }
+  
+  previous[typeOfArgs]++;
+  
+  return previous;
+    }, {})
+    )
+    .map(([type, count])=>`${type} = ${count}`)
+    .forEach((el) => console.log(el));
+}
