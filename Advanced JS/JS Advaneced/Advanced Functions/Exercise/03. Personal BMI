@@ -1,0 +1,25 @@
+function solve(name, age, weight, heightCm){
+  const output = {
+    name,
+    personalInfo: {
+      age,
+      weight,
+      height: heightCm
+    },
+  };
+const higtInM = heightCm / 100;
+const bmi = Math.round(weight / (higtInM ** 2)); // повдигаме на степен
+output['BMI'] = bmi;
+
+let status = '';
+
+if (bmi < 18.5) {
+  status = 'underweight';
+}else if (bmi < 25) {
+  status = 'normal';
+}else if (bmi < 30) {
+  status = 'overweight';
+}else{
+  status = 'obese';
+  output.recommendation = 'admission required';
+}
