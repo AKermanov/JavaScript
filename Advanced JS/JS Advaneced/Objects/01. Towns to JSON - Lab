@@ -1,0 +1,25 @@
+// кода трябва да е четим
+const isNotEmptyStr = x=>x !== ''; //predicate
+const trimMYString = x=>x.trim(); //lambda
+const parsIfNumber = x => Number(x) ?Math.floor(Number(x) * 100)/100: x;
+const arrayToObject = 
+
+function deserializeStringToArrayOfValues(str){ 
+return str       //вземи данните        
+.split('|')        //раздели ги по този начин          
+.filter(isNotEmptyStr) // обработи ги  get all values
+.map(trimMYString) //clean empty space
+.map(parsIfNumber);
+}
+
+function solve(data){
+let keys = deserializeStringToArrayOfValues(data[0]);
+
+return data
+.slice(1) //връща коепие от масива, тук махаме 0 индекс понеже са ключове;
+.map(deserializeStringToArrayOfValues)
+.map(x=>x.reduce((res,val,i)=>{  //агрегираме данни, взима функция и стойност в която да агрегира
+res[keys[i]] = val;
+return res;
+}, {})); 
+}
