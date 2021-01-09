@@ -1,0 +1,8 @@
+function solve(fruit, wight, price){
+  const wightInKg = (Number(wight) / 1000);
+  const moneyNeed = wightInKg * Number(price);
+
+  return `I need $${moneyNeed.toFixed(
+    2
+  )} to buy ${wightInKg.toFixed(2)} kilograms ${fruit}.`;
+}
