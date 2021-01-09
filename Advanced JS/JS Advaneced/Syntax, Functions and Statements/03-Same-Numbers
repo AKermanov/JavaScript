@@ -1,0 +1,15 @@
+function same(input) {
+  const letters = input.toString().split('');
+
+  const unique = new Set(letters);
+
+  let areSame = unique.size === 1 ? true : false;
+
+  let sum = 0;
+ for (let index = 0; index < letters.length; index++) {
+   sum += Number(letters[index]);
+ }
+   
+  console.log(areSame);
+  console.log(sum);
+}
