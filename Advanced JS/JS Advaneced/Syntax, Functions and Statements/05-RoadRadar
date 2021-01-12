@@ -1,0 +1,25 @@
+function solve(input){
+    const speed = Number(input[0]);
+    const area = input[1];
+
+    function message(speedLimit, speed){
+        const overTheLimit = speed - speedLimit;
+        if (overTheLimit > 0 && overTheLimit <= 20) {
+            return 'speeding';
+        }else if (overTheLimit > 20 && overTheLimit <= 40) {
+            return 'excessive speeding ';
+        }else if (overTheLimit > 40) {
+            return 'reckless driving';
+        }
+    }
+
+    if (area === 'residential') {
+        return message(20, speed);
+    }else if (area === 'city') {
+        return message(50, speed);
+    }else if (area === 'interstate') {
+        return message(90, speed);
+    }else if (area === 'motorway') {
+        return message(130, speed);
+    }
+}
