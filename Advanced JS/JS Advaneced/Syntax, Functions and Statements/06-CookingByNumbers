@@ -1,0 +1,21 @@
+function solve(input){
+    const arr = input;
+    let number = Number(arr.shift());
+
+    for (let i = 0; i < arr.length; i++) {
+        const cmd = arr[i];
+
+        if (cmd === 'chop') {
+            number = number / 2;
+        } else if (cmd === 'dice') {
+            number = Math.sqrt(number);
+        } else if (cmd === 'spice') {
+            number = number + 1;
+        } else if (cmd === 'bake') {
+            number = number * 3;
+        } else if (cmd === 'fillet') {
+            number = number - (number * 0.2)
+        }
+        console.log(number);
+    }
+}
