@@ -1,25 +1,59 @@
-function solve(input){
-    const speed = Number(input[0]);
-    const area = input[1];
+function solve(a, b) {
+  const speed = Number(a);
+  const area = b;
 
-    function message(speedLimit, speed){
-        const overTheLimit = speed - speedLimit;
-        if (overTheLimit > 0 && overTheLimit <= 20) {
-            return 'speeding';
-        }else if (overTheLimit > 20 && overTheLimit <= 40) {
-            return 'excessive speeding ';
-        }else if (overTheLimit > 40) {
-            return 'reckless driving';
-        }
-    }
+  function message(speedLimit, speed) {
+    const overTheLimit = speed - speedLimit;
+    if (overTheLimit > 0) {
+      return false;
+    }else{
+        return true;
+    } 
+  }
 
-    if (area === 'residential') {
-        return message(20, speed);
-    }else if (area === 'city') {
-        return message(50, speed);
-    }else if (area === 'interstate') {
-        return message(90, speed);
-    }else if (area === 'motorway') {
-        return message(130, speed);
+  function status(difference){
+      if (difference > 0 && difference <= 20) {
+          return 'speeding';
+      }else if(difference > 20 && difference <= 40){
+          return 'excessive speeding';
+      }else{
+          return 'reckless driving';
+      }
+  }
+
+  if (area === 'residential') {
+    if (message(20, speed)) {
+        return `Driving ${speed} km/h in a ${20} zone`;
+    }else{
+        const difference = speed - 20;
+        return `The speed is ${difference} km/h faster than the allowed speed of 20 - ${status(difference)}`;
     }
+  } else if (area === 'city') {
+    if(message(50, speed)){
+        return `Driving ${speed} km/h in a ${50} zone`;
+    }else{
+        const difference = speed - 50;
+        return `The speed is ${difference} km/h faster than the allowed speed of 50 - ${status(
+          difference
+        )}`;
+    }
+  } else if (area === 'interstate') {
+    if (message(90, speed)) {
+      return `Driving ${speed} km/h in a ${90} zone`;
+    } else {
+      const difference = speed - 90;
+      return `The speed is ${difference} km/h faster than the allowed speed of 90 - ${status(
+        difference
+      )}`;
+    }
+  } else if (area === 'motorway') {
+    if (message(130, speed)) {
+      return `Driving ${speed} km/h in a ${130} zone`;
+    } else {
+      const difference = speed - 130;
+      return `The speed is ${difference} km/h faster than the allowed speed of 130 - ${status(
+        difference
+      )}`;
+    }
+  }
 }
