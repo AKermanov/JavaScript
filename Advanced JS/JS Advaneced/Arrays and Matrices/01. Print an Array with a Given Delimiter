@@ -1,3 +1,9 @@
-function solve(input, delimiter){
-    return input.join(delimiter);
+function solve(input, step){
+    const result = [];
+
+    for (let i = 0; i < input.length; i += step) {
+      result.push(input[i]);
+    }
+
+    return result;
 }
