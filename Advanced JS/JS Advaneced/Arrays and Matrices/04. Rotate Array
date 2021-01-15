@@ -1,9 +1,11 @@
-function solve(input){
-let rotations = (+input.slice(input.length - 1)[0]) % (input.length-1);
-let arr = input.slice(0,input.length - 1);
+function solve(input, counter){
+    const arr = input.map(x=>x);
+    const rotations = counter % arr.length;
 
-for (let i = 0; i < rotations ; i++) {
-    arr.unshift(arr.pop());
-}
-console.log(arr.join(' '));
+    for (let i = 0; i < rotations; i++) {
+      const lastElement = arr.pop();
+      arr.unshift(lastElement);
+    }
+
+    return arr.join(' ');
 }
