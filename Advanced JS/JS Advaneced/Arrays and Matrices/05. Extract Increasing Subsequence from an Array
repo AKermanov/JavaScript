@@ -8,23 +8,5 @@ function main(lines) {
             biggest=lines[i];
         }
     }
-    console.log(result.join('\n'));
-}
-
-
-function main(lines) {
-
- let output = lines.reduce((acc, curr)=> {  //добре е за мсиви и за обекти
-      //debugger; когато искаме да дебъгваме
-
-      const lastElement = acc[acc.length - 1];
-
-     if (curr >=lastElement || lastElement === undefined){
-         acc.push(curr);
-     }
-
-     return acc; //извикваме return, ако не го върнем получаваме undefine
-  }, []);
-
-  console.log(output.join('\n'));
+    return result;
 }
