@@ -1,17 +1,11 @@
-function main(input) {
-const newArr = input
-.sort()
-.sort((firstName, secondName) => 
-firstName.length - secondName.length);
+function solve(input){
+    const result = input.sort((a, b)=>a.localeCompare(b));
 
- console.log(newArr.join('\n'));
+    let counter = 1;
+for (const iterator of result) {
+
+   console.log(`${counter}.${iterator}`);
+
+   counter++;
 }
-
-
-
-function main(input) {
-    return [...input]
-    .sort((a,b)=>{
-        return a.length - b.length || a.localeCompare(b) //сравнява стрингове по азбучен ред
-    }).join("\n")
 }
