@@ -1,0 +1,14 @@
+function solve(input){
+    var obj = input.reduce(function (acc, cur, i, arr) {
+       if (i % 2 === 0) {
+           acc[cur];
+       }else{
+           acc[arr[i - 1]] = Number(input[i]);
+         
+       }
+
+      return acc;
+    }, {});
+
+    return obj;
+}
