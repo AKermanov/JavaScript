@@ -1,0 +1,11 @@
+function solve(input){
+    const obj = Object.assign({}, input);
+
+    if (obj['dizziness'] === true) {
+        const addWater = obj['weight'] * 0.1 * obj['experience'];
+        obj['levelOfHydrated'] += addWater;
+        obj['dizziness'] = false;
+    }
+
+    return obj;
+}
