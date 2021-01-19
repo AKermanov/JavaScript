@@ -1,0 +1,14 @@
+function solve(input){
+    const resArray = [];
+
+    const result = input.reduce((acc, curr)=>{
+        const splitArray = curr.split(' / ');
+        const name = splitArray[0].trim();;
+        const level = Number(splitArray[1]);
+        const items = splitArray[2] ? splitArray[2].split(', ') : [];
+
+       resArray.push( {name, level, items});
+    }, [])
+
+    return JSON.stringify(resArray);
+}
