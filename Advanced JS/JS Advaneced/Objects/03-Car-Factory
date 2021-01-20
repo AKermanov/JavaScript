@@ -1,0 +1,64 @@
+function solve(input){
+     let singleWheel = input['wheelsize'];
+     let wheel = 0;
+     const power = input['power'];
+
+     if (singleWheel % 2 === 0) {
+       if (Number.isInteger(singleWheel)) {
+         wheel = singleWheel - 1;
+       } else {
+         wheel = Math.floor(singleWheel);
+       }
+     } else {
+       wheel = input['wheelsize'];
+     }
+    const wheelsForCar = [wheel, wheel, wheel, wheel];
+
+    const enginesTypes = {
+      small: { power: 90, volume: 1800 },
+      normal: { power: 120, volume: 2400 },
+      monster: { power: 200, volume: 3500 },
+    };
+
+    let currentEngine = {};
+    if (power <= 90) {
+      currentEngine = enginesTypes.small;
+    } else if (power <= 120) {
+      currentEngine = enginesTypes.normal;
+    } else {
+      currentEngine = enginesTypes.monster;
+    }
+
+      const obj = {
+        model: input['model'],
+        engine: currentEngine,
+        carriage: {
+          type: input['carriage'],
+          color: input['color'],
+        },
+        wheels: wheelsForCar,
+      };
+
+  return obj;
+}
+
+/*
+console.log(
+  solve({
+    model: 'VW Golf II',
+    power: 90,
+    color: 'blue',
+    carriage: 'hatchback',
+    wheelsize: 14,
+  })
+);
+*/
+console.log(
+  solve({
+    model: 'Opel Vectra',
+    power: 110,
+    color: 'grey',
+    carriage: 'coupe',
+    wheelsize: 17
+  })
+);
