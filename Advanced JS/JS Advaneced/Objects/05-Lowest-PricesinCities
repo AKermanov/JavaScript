@@ -1,0 +1,21 @@
+function solve(input) {
+  const obj = input.reduce((a, b) => {
+    const [town, product, price] = b.split(' | ');
+
+    !a[product] ? (a[product] = []) : null;
+
+    a[product][town] = Number(price);
+
+    return a;
+  }, {});
+
+  const result = [];
+
+  Object.keys(obj).forEach((p) => {
+    const [town, price] = Object.entries(obj[p]).sort((a, b) => a[1] - b[1])[0];
+
+    result.push(`${p} -> ${price} (${town})`);
+  });
+
+  return result.join('\n');
+}
