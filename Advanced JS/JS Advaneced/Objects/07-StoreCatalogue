@@ -1,0 +1,32 @@
+function solve(input) {
+  const result = {};
+
+  input.forEach((element) => {
+    const [product, price] = element.split(' : ');
+    const productLetter = product[0];
+    if (!result[productLetter]) {
+      result[productLetter] = [];
+    }
+
+    result[productLetter].push(`${product}: ${price}`);
+  });
+
+  function sortObj(obj) {
+    return Object.keys(obj)
+      .sort()
+      .reduce(function (result, key) {
+        result[key] = obj[key];
+        return result;
+      }, {});
+  }
+
+  const sortedObj = sortObj(result);
+
+  for (const key in sortedObj) {
+    console.log(key);
+
+    for (const iterator of sortedObj[key].sort()) {
+      console.log(`  ${iterator}`);
+    }
+  }
+}
