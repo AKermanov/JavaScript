@@ -1,0 +1,30 @@
+function listProcessor(input) {
+    let arr = [];
+    const commands = {
+        add,
+        remove,
+        print
+    }
+    
+    input.forEach(element => {
+        const command = element.split(' ')[0];
+        const arg = element.split(' ')[1];
+        if (!arg) {
+            commands[command].call();
+        } else {
+            commands[command].call(this, arg);
+        }
+    });
+
+    function add(str) {
+        arr.push(str);
+    }
+
+    function remove(str) {
+        arr = arr.filter(e => e !== str);
+    }
+
+    function print() {
+        console.log(arr.join(','));
+    }
+}
