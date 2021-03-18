@@ -1,0 +1,62 @@
+function solution() {
+class Employee {
+    constructor(name,age) {
+        this.name=name
+        this.age=Number(age)
+        this.salary=0
+    }
+/*     getSalary() {
+        if (this.dividend === undefined) {
+        return this.salary
+        }
+        else { return this.salary+this.dividend}
+    } */
+        work() {
+        if (this.index === this.tasks.length) {
+            this.index=0
+        }
+       console.log( this.tasks[this.index])
+       this.index++
+
+    }
+    collectSalary() {
+        if (this.dividend === undefined) {
+        console.log(`${this.name} received ${this.salary} this month.`)
+        }
+        else {console.log(`${this.name} received ${this.salary+this.dividend} this month.`)}
+    }
+}
+class Junior extends Employee {
+    constructor(name,age,tasks) {
+        super(name,age)
+        this.tasks=[
+            `${this.name} is working on a simple task.`
+        ]
+        this.index = 0
+    }
+}
+class Senior extends Employee {
+    constructor(name,age,tasks) {
+        super(name,age)
+        this.index = 0
+        this.tasks=[
+             `${this.name} is working on a complicated task.`,
+ `${this.name} is taking time off work.`, 
+ `${this.name} is supervising junior workers.` 
+        ]
+    }
+}
+class Manager extends Employee {
+    constructor(name,age,dividend) {
+        super(name,age)
+        this.index = 0
+        this.tasks=[
+            `${this.name} scheduled a meeting.`,
+            `${this.name} is preparing a quarterly report.`
+
+        ]
+        this.dividend=0
+    }
+}
+return { Employee, Junior, Senior, Manager }
+}
